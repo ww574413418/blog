@@ -1,11 +1,13 @@
 package com.zc.blog.service;
 
 import com.zc.blog.pojo.User;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
 
-public interface UserService {
-    // 创建或修改用户
+@Service
+public interface UserService extends CrudRepository<User,Long> {
+    /*// 创建或修改用户
     User SaveOrUpdateUser(User user);
 
     // 删除用户
@@ -15,5 +17,5 @@ public interface UserService {
     User getUserById(Long id);
 
     // 获取用户列表
-    List<User> listUser();
+    List<User> listUser();*/
 }
