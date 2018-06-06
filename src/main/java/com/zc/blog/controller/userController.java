@@ -25,6 +25,7 @@ public class userController {
     @GetMapping("{id}")
     public ModelAndView view(@PathVariable("id")Long id,Model model){
         Optional<User> user = userService.findById(id);
+        model.addAttribute("user",user.get());
         model.addAttribute("title","用户详情");
         return new ModelAndView("users/view","userModel",model);
     }
