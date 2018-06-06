@@ -6,6 +6,17 @@
     <title>Title</title>
 </head>
 <body>
-
+<div th:replace="~{fregaments/header :: header}"></div>
+<h3 th:text="${userModel.title}"></h3>
+<div>
+    <p><strong>ID:</strong><span th:text="${userModel.user.id}"></span></p>
+    <p><strong>Name:</strong><span th:text="${userModel.user.name}"></span></p>
+    <p><strong>Email:</strong><span th:text="${userModel.user.email}"></span></p>
+    <div>
+        <a th:href="@{'/users/delete/'+${userModel.user.id}}">删除</a>
+        <a th:href="@{'/users/modify/'+${userModel.user.id}}">修改</a>
+    </div>
+</div>
+<div th:replace="~{fregaments/footer :: footer}"></div>
 </body>
 </html>
