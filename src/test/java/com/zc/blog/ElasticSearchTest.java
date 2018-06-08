@@ -43,7 +43,7 @@ public class ElasticSearchTest {
     @Test
     public void test(){
         Pageable pageable = new PageRequest(0, 20);
-        Page<blog> page = blogRepository.findBlogByTitleLikeOrContentLike("妹", "酒", pageable);
+        Page<blog> page = blogRepository.findDistinctBlogByTitleLikeOrSummaryLikeOrContentLike("5", "Eclipse", "编辑器",pageable);
         assertThat(page.getTotalElements()).isEqualTo(1);
     }
 }
