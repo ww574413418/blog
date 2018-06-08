@@ -17,18 +17,10 @@ import java.util.List;
 @RequestMapping("/blogs")
 public class BlogController {
 
-    @Autowired
-    private BlogRepository blogRepository;
-
     @GetMapping
-    public List<blog> list(@RequestParam("title")String title,
-                           @RequestParam("summary")String summary,
-                           @RequestParam("content")String content,
-                           @RequestParam(value = "pageIndex",defaultValue = "0")int pageInex,
-                           @RequestParam(value = "pageSize",defaultValue = "10")int pageSize){
-
-        Pageable pageable = new PageRequest(pageInex, pageSize);
-        Page<blog> page = blogRepository.findDistinctBlogByTitleLikeOrSummaryLikeOrContentLike(title, summary,content, pageable);
-        return page.getContent();
+    public String listBlogs(@RequestParam(value="order",required=false,defaultValue="new") String order,
+                            @RequestParam(value="tag",required=false) Long tag) {
+        System.out.print("order:" +order + ";tag:" +tag );
+        return "redirect:/index?order="+order+"&tag="+tag;
     }
 }
