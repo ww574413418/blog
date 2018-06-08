@@ -7,5 +7,6 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 
 public interface BlogRepository extends ElasticsearchRepository<blog, String> {
 
-	Page<blog> findByTitleLikeOrContentLike(String title, String content, Pageable pageable);
+	//Page<blog> findByTitleLikeOrContentLike(String title, String content, Pageable pageable);
+	Page<blog> findBlogByTitleLikeOrContentLike(String title, String content, Pageable pageable);
 }

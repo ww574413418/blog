@@ -2,6 +2,7 @@ package com.zc.blog;
 
 import com.zc.blog.pojo.blog;
 import com.zc.blog.service.BlogRepository;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,8 @@ public class ElasticSearchTest {
     @Autowired
     private BlogRepository blogRepository;
 
-    @Test
-    public void test(){
+    @Before
+    public void initial(){
         // 清空所有
         blogRepository.deleteAll();
 
@@ -37,9 +38,12 @@ public class ElasticSearchTest {
                 "如果你的代码使用了 HTML5 的标准，而Thymeleaf 版本来停留在 2.x ，那么如果没有把闭合"));
         blogRepository.save(new blog("6","02-19 使用 GFM Eclipse 插件时，不在项目里面生成 HTML 文件",
                 "GFM 是 GitHub Flavored Markdown Viewer 的简称，是一款对 GitHub 友好的 Markdown 编辑器 。"));
+    }
 
+    @Test
+    public void test(){
         Pageable pageable = new PageRequest(0, 20);
-        Page<blog> page = blogRepository.findByTitleLikeOrContentLike("妹", "酒", pageable);
+        Page<blog> page = blogRepository.findBlogByTitleLikeOrContentLike("妹", "酒", pageable);
         assertThat(page.getTotalElements()).isEqualTo(1);
     }
 }

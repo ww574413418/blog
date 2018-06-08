@@ -1,11 +1,13 @@
 package com.zc.blog.pojo;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
 
 @Document(indexName = "blog",type = "blog",shards = 1, replicas = 0, refreshInterval = "-1")
 public class blog implements Serializable {
 
+    @Id
     private String id;
     private String title;
     private String summary;
