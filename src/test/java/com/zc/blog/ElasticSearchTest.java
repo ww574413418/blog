@@ -1,7 +1,7 @@
 package com.zc.blog;
 
 import com.zc.blog.pojo.blog;
-import com.zc.blog.service.BlogRepository;
+import com.zc.blog.repository.BlogRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.zc.blog.service;
+package com.zc.blog.repository;
 
 import com.zc.blog.pojo.blog;
 import org.springframework.data.domain.Page;

@@ -1,4 +1,4 @@
-package com.waylau.spring.boot.blog.controller;
+package com.zc.blog.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * 主页控制器.
- * 
- * @since 1.0.0 2017年3月8日
- * @author <a href="https://waylau.com">Way Lau</a> 
  */
 @Controller
 public class MainController {
